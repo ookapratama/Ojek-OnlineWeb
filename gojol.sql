@@ -70,7 +70,7 @@ CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `nm_user` varchar(50) NOT NULL,
   `alamat` text NOT NULL,
-  `pekerjaan` varchar(50) NOT NULL
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
