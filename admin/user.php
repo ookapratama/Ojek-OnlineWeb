@@ -122,10 +122,10 @@ require 'header.php';
                               <td><?= $row['alamat'] ?></td>
                               <td><?= $row['password'] ?></td>
                               <td>
-                                 <a href="#" class="btn btn-warning btn-circle btn-md">
+                                 <a href="user_edit.php?id=<?= $row['id_user'] ?>" class="btn btn-warning btn-circle btn-md">
                                     <i class="fas fa-exclamation-triangle"></i>
                                  </a>
-                                 <a href="#" class="btn btn-danger btn-circle btn-md">
+                                 <a href="user_hapus.php?id=<?= $row['id_user'] ?>" class="btn btn-danger btn-circle btn-md">
                                     <i class="fas fa-trash"></i>
                                  </a>
                               </td>

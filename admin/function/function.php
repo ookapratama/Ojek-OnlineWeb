@@ -27,7 +27,48 @@
       }
 
       $cek = mysqli_query($koneksi, $sql);
-      $row = mysqli_num_rows($cek);
+      $row = mysqli_affected_rows($koneksi);
       
       return $row;
+   }
+
+
+   function hapus($table, $id)
+   {
+      global $koneksi;
+
+
+      switch ($table) {
+         case 'user':
+            $sql = "DELETE FROM $table WHERE id_user = $id";
+            break;
+         
+         default:
+            # code...
+            break;
+      }
+
+      $result = mysqli_query($koneksi, $sql);
+      return mysqli_affected_rows($koneksi);
+   }
+
+   function update($table, $data, $id)
+   {
+      global $koneksi;
+
+      switch ($table) {
+         case 'user':
+            $nm = $data['nama'];
+            $alamat = $data['alamat'];
+            $pass = $data['password'];
+            $sql = "UPDATE $table SET nm_lengkap = '$nm', alamat = '$alamat', password = '$pass' WHERE id_user = $id";
+            break;
+         
+         default:
+            # code...
+            break;
+      }
+
+      mysqli_query($koneksi, $sql);
+      return mysqli_affected_rows($koneksi);
    }

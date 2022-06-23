@@ -6,9 +6,9 @@ if (isset($_POST['submit'])) {
    
    $data = tambah("user", $_POST);
    if ($data > 0) {
-      echo "<script>alert('Data Sudah ditambah')</script>
-      windows.location.href = 'user.php';
-      ";
+      echo "<script>alert('Data Sudah ditambah')</script>";
+      header("location: user.php");
+      
    }
    else 
       echo "<script>alert('Data Gagal ditambah')</script>";
