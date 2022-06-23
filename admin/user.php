@@ -112,7 +112,7 @@ require 'header.php';
 
                      <tbody>
                         <?php
-                        $data = view("user");
+                        $data = view("user", null, null);
                         $i = 1;
                         while ($row = mysqli_fetch_assoc($data)) :
                         ?>

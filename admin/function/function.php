@@ -1,10 +1,15 @@
 <?php 
    $koneksi = mysqli_connect("localhost", "root", "", "db_ojol");
 
-   function view($table) 
+   function view($table, $id, $field) 
    {
       global $koneksi;
-      $sql = "SELECT * FROM $table";
+      if ($id == null) {
+         $sql = "SELECT * FROM $table";
+      }
+      else 
+         $sql = "SELECT * FROM $table WHERE $field = $id";
+
       $result = mysqli_query($koneksi, $sql);
       return $result;
    }
@@ -61,7 +66,7 @@
             $nm = $data['nama'];
             $alamat = $data['alamat'];
             $pass = $data['password'];
-            $sql = "UPDATE $table SET nm_lengkap = '$nm', alamat = '$alamat', password = '$pass' WHERE id_user = $id";
+            $sql = "UPDATE $table SET nm_user = '$nm', alamat = '$alamat', password = '$pass' WHERE id_user = $id";
             break;
          
          default:

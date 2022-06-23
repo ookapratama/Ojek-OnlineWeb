@@ -1,19 +1,18 @@
 <?php
 require 'function/function.php';
 
+$id = $_GET['id'];
 
 if (isset($_POST['submit'])) {
-   $id = $_GET['id'];
    $data = update("user", $_POST, $id);
    if ($data > 0) {
-      echo "<script>alert('Data Sudah ditambah')</script>";
+      echo "<script>alert('Data Sudah diedit')</script>";
       header("location: user.php");
-      
-   }
-   else 
-      echo "<script>alert('Data Gagal ditambah')</script>";
-
+   } else
+      echo "<script>alert('Data Gagal diedit')</script>";
 }
+
+$data_id = view("user", $id, "id_user");
 
 ?>
 
@@ -54,30 +53,30 @@ if (isset($_POST['submit'])) {
                         <h1 class="h4 text-gray-900 mb-4">Edit Data User!</h1>
                      </div>
                      <form class="user" method="POST" action="">
-                        <input type="hidden" >
+                        <?php while($row = mysqli_fetch_assoc($data_id)) : ?>
+
+                        <input type="hidden">
                         <div class="form-group row">
                            <div class="col-sm mb-4 ">
-                              <input type="text" name="nama" class="form-control form-control-user" id="exampleFirstName" placeholder="Nama Lengkap">
+                              <input type="text" name="nama" class="form-control form-control-user" id="exampleFirstName" placeholder="Nama Lengkap" value="<?= $row['nm_user'] ?>">
                            </div>
 
                         </div>
-                        <div class="form-group mb-5">
-                           <input type="text" name="username" class="form-control form-control-user" id="exampleInputEmail" placeholder="Username">
-                        </div>
+                       
 
                         <div class="form-group mb-5">
-                           <input type="text" name="alamat" class="form-control form-control-user" id="exampleInputEmail" placeholder="Alamat Lengkap">
+                           <input type="text" name="alamat" class="form-control form-control-user" id="exampleInputEmail" placeholder="Alamat Lengkap" value="<?= $row['alamat'] ?>">
                         </div>
 
                         <div class="form-group row">
                            <div class="col-sm mb-3 mb-sm-0">
-                              <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                              <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" value="<?= $row['password'] ?>">
                            </div>
-                         
+
                         </div>
+                        <?php endwhile; ?>
 
                         <button type="submit" name="submit" class="btn btn-warning btn-block mt-5 py-3">+ .Update Data</button>
-
                      </form>
 
 
