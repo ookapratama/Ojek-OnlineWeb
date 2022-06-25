@@ -62,7 +62,10 @@ function hapus($table, $id)
       case 'driver':
          $sql = "DELETE FROM $table WHERE id_driver = $id";
          break;
+      case 'transaksi' :
+         $sql = "DELETE FROM $table WHERE id_tran = $id";
 
+         break;
 
       default:
          # code...
