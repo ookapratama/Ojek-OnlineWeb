@@ -84,5 +84,4 @@ require 'function/function.php' ?>
            
         </ul>
         <!-- End of Sidebar -->
-<?php require 'nav.php' ?>
         

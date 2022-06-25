@@ -42,9 +42,10 @@ function tambah($table, $data)
          break;
    }
 
-   $cek = mysqli_query($koneksi, "SELECT * FROM $table");
+   $cek = mysqli_query($koneksi, $sql);
+   $row = mysqli_affected_rows($koneksi);
 
-   return $cek;
+   return $row;
 }
 
 
@@ -71,8 +72,8 @@ function hapus($table, $id)
          break;
    }
 
-   return mysqli_query($koneksi, "SELECT * FROM $table");
-   
+   mysqli_query($koneksi, $sql);
+   return mysqli_affected_rows($koneksi);
 }
 
 function update($table, $data, $id)
@@ -109,9 +110,9 @@ function update($table, $data, $id)
          break;
    }
 
-   return mysqli_query($koneksi, "SELECT * FROM $table");
+   mysqli_query($koneksi, $sql);
    // var_dump(mysqli_affected_rows($koneksi));
-
+   return mysqli_affected_rows($koneksi);
 }
 
 function gambar()
