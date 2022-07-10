@@ -1,2 +1,2 @@
 # ojol-berbasisWeb
-Aplikasi Ojek online sederhana berbasis Web menggunakan Boostrap + PHP Native
+Aplikasi Ojek online sederhana berbasis Web menggunakan Bootstrap + PHP Native
