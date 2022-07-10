@@ -1,4 +1,2 @@
 # ojol-berbasisWeb
-Aplikasi Ojek online sederhana berbasis Web
-
-#kkPuputJelek
+Aplikasi Ojek online sederhana berbasis Web menggunakan Boostrap + PHP Native
